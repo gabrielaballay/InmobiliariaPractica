@@ -1,0 +1,79 @@
+﻿@model Inmobiliaria.Models.Propietario
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 style="margin-top:15px; text-align:center;">Propietario</h4>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form asp-action="Create" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Nombre" class="form-control-label"></label>
+                        <input asp-for="Nombre" class="form-control" required />
+                        <div class="invalid-feedback">Ingrese un nombre</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Apellido" class="form-control-label"></label>
+                        <input asp-for="Apellido" class="form-control" required />
+                        <div class="invalid-feedback">Ingrese un Apellido</div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Mail" class="form-control-label"></label>
+                        <input asp-for="Mail" class="form-control" required />
+                        <div class="invalid-feedback">Ingrese un Mail Valido</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Telefono" class="form-control-label"></label>
+                        <input asp-for="Telefono" class="form-control" required />
+                        <div class="invalid-feedback">Ingrese un Nro de Telefono</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-6">
+                        <label asp-for="Clave" class="form-control-label"></label>
+                        <input asp-for="Clave" class="form-control" required />
+                        <div class="invalid-feedback">Ingrese Contraseña</div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-9 col-md-4">
+                        <input type="submit" value="Create" class="btn btn-success btn-block" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+<script>
+    //JavaScript para deshabilitar los envíos de formularios si hay campos no válidos
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Obtengo el formulario al que quiero aplicar estilos personalizados de validación Bootstrap
+            var forms = document.getElementsByClassName('needs-validation');
+            
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
